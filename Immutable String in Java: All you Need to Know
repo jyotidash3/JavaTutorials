@@ -1,0 +1,69 @@
+Dealing with Immutable String in Java is a very important Aspect in any programming language. In this article, we will discuss the following pointers:
+
+1: Introduction to Immutable String in Java
+2: Hashmap Key
+3: Need for Immutable String in Java
+
+1 : Introduction to Immutable String in Java ::
+
+The string pool has string objects that are cached due to which string is immutable. 
+Multiple clients share the cached string literals. 
+The risks involved in the action of one client would affect all the other clients.
+
+For example, when a client changes the String value “Test” to “TEST”, 
+all other clients will see the changed value. 
+As string objects caching was important for performance, 
+the Immutable String class avoided the risk. Also, 
+String was made final so that the invariant of the String class will not be compromised.
+Example Immutability, Caching, hash code calculation done by extension and override of behaviors. 
+
+
+2 : Hashmap Key ::
+The HashMap key is very popular, immutability is very important so that the value object can be retrieved from HashMap.
+Hashing is the principle of HashMap, which requires the same has value to function properly. 
+Two different hashcodes are produced one at the time of insertion and other at the time retrieval 
+when contents are modified after insertion, potentially losing map value object in the map.
+
+
+For Image Please see the link : https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/09/Hashtable-Java-HashMap-vs-Hashtable-Edureka-2.png
+
+Immutable String class in Java is the most frequently asked Interview questions. 
+The discussion starts with, what is a String, how it is different from String in C++, 
+and then the question follows are immutable objects in Java, benefits of the immutable object, 
+what is their use and the scenarios to use them. 
+
+ 
+
+3 : Need for Immutable String in Java ::
+Two reasons are important to say why Immutable String class is made in Java: 
+
+1. It is not possible at all in the case to have one string object/literal.
+Let us refer to below example: 
+
+“Test” can be referred by many reference variables. 
+If any one of them changes the value for others, this will be affected as well. Let us see how.
+
+String A = "Test"
+String B = "Test"
+
+String A called, “Test”.toUpperCase() which changes the same object into,
+"TEST" so B will also be “TEST” which is not needed. 
+Below is a diagram that tells us how String is created in heap memory and String literal pool.
+
+See the Link : https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2019/10/immutable-in-java-520x300.jpg
+
+2. The string had widely been used as a parameter for many Java classes.
+For example, when we open a network connection, we can pass hostname and port number as a string,
+for opening database connection we can pass the database URL as a string. 
+
+An immutable string would lead to serious security threats. 
+For example, someone can access a file, 
+to which he has access and then change the name of the file name to gain access to the other file. 
+In the case of immutability, no need to worry about these threats. 
+
+An immutable string can safely share threads as well, 
+which is important for multithreaded programming.
+An immutable string instance is thread-safe in Java so no need to 
+synchronize String operation externally to avoid synchronization issues in Java.
+Another important point to note is the memory leak caused by Substring, 
+which is not a thread related issue but something to be aware about.
